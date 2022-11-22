@@ -152,9 +152,6 @@ proxy-providers:
   服务提供商-1:
     interval: 600
     url: http://your-service-provider
-  私人订制:
-    interval: 86400
-    url: https://link.jscdn.cn/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBblRab3JJdWhsSDdnbnZLTUpka1B1cFNzWVlxP2U9eTNJazln
 rule-providers:
   disney:
     behavior: domain
