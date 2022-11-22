@@ -1,0 +1,271 @@
+dns:
+  default-nameserver:
+  - 114.114.115.115
+  - 119.28.28.28
+  - 223.6.6.6
+  - system
+  nameserver:
+  - https://dns.alidns.com/dns-query
+  - https://doh.pub/dns-query
+log-level: info
+mode: rule
+
+#策略组
+proxy-groups:
+
+- icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/Proxy.png
+  name: 选择代理
+  proxies:
+  - HK 香港
+  - TW 台湾
+  - SG 新加坡
+  - JP 日本
+  - US 美国
+  - DIRECT
+  type: select
+
+- icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/Netflix.png
+  name: Netflix
+  proxies:
+  - HK 香港
+  - TW 台湾
+  - SG 新加坡
+  - JP 日本
+  - US 美国
+  - DIRECT
+  type: select
+
+- icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/Disney%2B.png
+  name: Disney+
+  proxies:
+  - HK 香港
+  - TW 台湾
+  - SG 新加坡
+  - JP 日本
+  - US 美国
+  - DIRECT
+  type: select
+
+- icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/bilibili.png
+  name: Bilibili
+  proxies:
+  - HK 香港
+  - TW 台湾
+  - DIRECT
+  type: select
+
+- icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/Spotify.png
+  name: Spotify
+  proxies:
+  - HK 香港
+  - TW 台湾
+  - SG 新加坡
+  - JP 日本
+  - US 美国
+  - DIRECT
+  type: select
+
+- icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/YouTube.png
+  name: YouTube
+  proxies:
+  - HK 香港
+  - TW 台湾
+  - SG 新加坡
+  - JP 日本
+  - US 美国
+  - DIRECT
+  type: select
+
+- icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/Final.png
+  name: 默认
+  proxies:
+  - 选择代理
+  - DIRECT
+  type: select
+
+- filter: "港|\U0001F1ED\U0001F1F0|HK|(?i)Hong"
+  icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/Hong_Kong.png
+  include-all: true
+  interval: 120
+  lazy: true
+  name: HK 香港
+  proxies: []
+  tolerance: 50
+  type: select
+
+- filter: "台|\U0001F1E8\U0001F1F3|\U0001F1F9\U0001F1FC|湾|TW|(?i)Taiwan"
+  icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/Taiwan.png
+  include-all: true
+  interval: 120
+  lazy: true
+  name: TW 台湾
+  proxies: []
+  tolerance: 50
+  type: select
+
+- filter: "新加坡|坡|狮城|\U0001F1F8\U0001F1EC|SG|(?i)Singapore"
+  icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/Singapore.png
+  include-all: true
+  interval: 120
+  lazy: true
+  name: SG 新加坡
+  proxies: []
+  tolerance: 50
+  type: select
+
+- filter: "日|\U0001F1EF\U0001F1F5|东京|JP|(?i)Japan"
+  icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/Japan.png
+  include-all: true
+  interval: 120
+  lazy: true
+  name: JP 日本
+  proxies: []
+  tolerance: 50
+  type: select
+
+- filter: "美|\U0001F1FA\U0001F1F2|US|(?i)States|American"
+  icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/United_States.png
+  include-all: true
+  interval: 120
+  lazy: true
+  name: US 美国
+  proxies: []
+  tolerance: 50
+  type: select
+
+#远程订阅(代理集合)
+proxy-providers:
+  服务提供商-1:
+    interval: 86400
+    url: http://your-service-provider
+
+#远程规则集合声明
+rule-providers:
+  disney:
+    behavior: domain
+    interval: 86400
+    type: http
+    url: https://rules.kr328.app/disney.yaml
+  facebook:
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/facebook.yaml
+  github:
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/github.yaml
+  google:
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/google.yaml
+  instagram:
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/instagram.yaml
+  microsoft:
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/microsoft.yaml
+  microsoft@cn:
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/microsoft@cn.yaml
+  netflix:
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/netflix.yaml
+  bilibili:
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/bilibili.yaml
+  spotify:
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/spotify.yaml
+  steam:
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/steam.yaml
+  steam@cn:
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/steam@cn.yaml
+  telegram:
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/telegram.yaml
+  twitter:
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/twitter.yaml
+  xbox:
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/xbox.yaml
+  youtube:
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/youtube.yaml
+
+#分流规则
+rules:
+- DOMAIN-SUFFIX,plus.aaa.ax,DIRECT
+- DOMAIN-SUFFIX,embyvip.misakaf.org,DIRECT
+- DOMAIN-SUFFIX,cdb03a76d89b5b34.dgnqzb.charontv.com,DIRECT
+- DOMAIN-SUFFIX,cdb03a76d89b5b34.dbeozg.charontv.com,DIRECT
+- DOMAIN-SUFFIX,cdb03a76d89b5b34.jxfqc4.charontv.com,DIRECT
+- DOMAIN-SUFFIX,aaa.ax  ,DIRECT
+- DOMAIN-SUFFIX,misakaf.org ,DIRECT
+- DOMAIN-SUFFIX,charontv.com,DIRECT
+- RULE-SET,netflix,Netflix
+- RULE-SET,disney,Disney+
+- RULE-SET,bilibili,Bilibili
+- RULE-SET,spotify,Spotify
+- RULE-SET,github,选择代理
+- IP-ASN,62014,选择代理,no-resolve
+- IP-ASN,59930,选择代理,no-resolve
+- IP-ASN,44907,选择代理,no-resolve
+- IP-ASN,211157,选择代理,no-resolve
+- PROCESS-NAME,Telegram.exe,选择代理
+- PROCESS-NAME,Telegram,选择代理
+- RULE-SET,telegram,选择代理
+- RULE-SET,youtube,YouTube
+- RULE-SET,google,选择代理
+- RULE-SET,twitter,选择代理
+- DOMAIN-SUFFIX,tapbots.com,选择代理
+- RULE-SET,instagram,选择代理
+- RULE-SET,facebook,选择代理
+- RULE-SET,steam@cn,DIRECT
+- RULE-SET,steam,选择代理
+- DOMAIN-SUFFIX,iphone-ld.apple.com,DIRECT
+- DOMAIN-SUFFIX,lcdn-locator.apple.com,DIRECT
+- DOMAIN-SUFFIX,lcdn-registration.apple.com,DIRECT
+- DOMAIN-SUFFIX,push.apple.com,DIRECT
+- PROCESS-NAME,trustd,选择代理
+- RULE-SET,microsoft@cn,DIRECT
+- RULE-SET,microsoft,选择代理
+- RULE-SET,xbox,选择代理
+- PROCESS-NAME,v2ray,DIRECT
+- PROCESS-NAME,Surge,DIRECT
+- PROCESS-NAME,ss-local,DIRECT
+- PROCESS-NAME,privoxy,DIRECT
+- PROCESS-NAME,trojan,DIRECT
+- PROCESS-NAME,trojan-go,DIRECT
+- PROCESS-NAME,naive,DIRECT
+- PROCESS-NAME,CloudflareWARP,DIRECT
+- PROCESS-NAME,Cloudflare WARP,DIRECT
+- IP-CIDR,162.159.193.0/24,DIRECT,no-resolve
+- PROCESS-NAME,p4pclient,DIRECT
+- PROCESS-NAME,Thunder,DIRECT
+- PROCESS-NAME,DownloadService,DIRECT
+- PROCESS-NAME,qbittorrent,DIRECT
+- PROCESS-NAME,Transmission,DIRECT
+- PROCESS-NAME,fdm,DIRECT
+- PROCESS-NAME,aria2c,DIRECT
+- PROCESS-NAME,Folx,DIRECT
+- PROCESS-NAME,NetTransport,DIRECT
+- PROCESS-NAME,uTorrent,DIRECT
+- PROCESS-NAME,WebTorrent,DIRECT
+- GEOIP,LAN,DIRECT
+- GEOIP,CN,DIRECT
+- MATCH,默认
