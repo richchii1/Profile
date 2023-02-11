@@ -1,7 +1,7 @@
 # NAME: Emby
 
 DOMAIN-SUFFIX,misakaf.org
-DOMAIN-SUFFIX,loseremby.org:80
+DOMAIN-SUFFIX,loseremby.org
 DOMAIN-SUFFIX,emby.ml
 DOMAIN-SUFFIX,tls.ink
 DOMAIN-SUFFIX,deja-vu.beauty
